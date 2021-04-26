@@ -1,10 +1,14 @@
 import React from "react";
-import "./App.css";
+import Home from "./pages/Home/Home.js";
+
+import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <h1>Amazon Clone</h1>
+      <>
+        <Home />
+      </>
     </div>
   );
 }
