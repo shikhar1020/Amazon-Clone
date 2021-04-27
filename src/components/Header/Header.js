@@ -3,9 +3,11 @@ import { MdSearch } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useStateValue } from "../../context/StateProvider";
 import "./style.scss";
 
 function Header() {
+  const [{ basket, user }, dispatch] = useStateValue();
   return (
     <div className="header">
       {/* <Router> */}
@@ -36,7 +38,7 @@ function Header() {
         </div>
         <div className="headerCart">
           <MdShoppingCart />
-          <span className="headerSideLine2 headerBasket">0</span>
+          <span className="headerSideLine2 headerBasket">{basket?.length}</span>
         </div>
       </div>
     </div>
