@@ -4,6 +4,7 @@ import Header from "./components/Header/Header.js";
 import Home from "./pages/Home/Home";
 import Checkout from "./pages/Checkout/Checkout";
 import NoRoute from "./pages/NoRoute/NoRoute";
+import Login from "./pages/Login/Login";
 import "./App.scss";
 
 /* ---- Lazy load base app routes ---- */
@@ -14,10 +15,11 @@ function App() {
   return (
     <div className="App">
       <>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/login" component={Login} />
           <Route component={NoRoute} />
         </Switch>
       </>

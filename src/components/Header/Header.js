@@ -24,10 +24,12 @@ function Header() {
         <MdSearch className="searhIcon" />
       </div>
       <div className="headerSide">
-        <div className="hederSignIn">
-          <span className="headerSideLine1">Hello, Guest </span>
-          <span className="headerSideLine2">Sign In</span>
-        </div>
+        <Link to="/login">
+          <div className="hederSignIn">
+            <span className="headerSideLine1">Hello, Guest </span>
+            <span className="headerSideLine2">Sign In</span>
+          </div>
+        </Link>
         <div className="headerOrders">
           <span className="headerSideLine1">Returns </span>
           <span>& Orders</span>
