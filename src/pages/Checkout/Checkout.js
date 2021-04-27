@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header.js";
 import CheckoutSubTotal from "../../components/CheckoutSubTotal/CheckoutSubTotal";
+import CheckoutList from "../../components/CheckoutList/CheckoutList";
 import "./checkout.scss";
 
 function Checkout() {
@@ -14,7 +15,7 @@ function Checkout() {
           alt=""
         />
         <div className="checkoutTitle">
-          <h1>Left</h1>
+          <CheckoutList />
         </div>
       </div>
       <div className="checkoutRight">
