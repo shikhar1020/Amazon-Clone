@@ -10,15 +10,15 @@ function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
   return (
     <div className="header">
-      {/* <Router> */}
-      {/* <Link to="/chekoutnnnnn"> */}
-      <img
-        className="headerLogo"
-        src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        alt="Amazon Logo"
-      />
-      {/* </Link> */}
-      {/* </Router> */}
+      <Link to="/">
+        <div>
+          <img
+            className="headerLogo"
+            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            alt="Amazon Logo"
+          />
+        </div>
+      </Link>
       <div className="headerSearch">
         <input className="headerSearchInput" type="text" />
         <MdSearch className="searhIcon" />
@@ -36,10 +36,14 @@ function Header() {
           <span className="headerSideLine1">Your </span>
           <span className="headerSideLine2">Prime</span>
         </div>
-        <div className="headerCart">
-          <MdShoppingCart />
-          <span className="headerSideLine2 headerBasket">{basket?.length}</span>
-        </div>
+        <Link to="/checkout">
+          <div className="headerCart">
+            <MdShoppingCart />
+            <span className="headerSideLine2 headerBasket">
+              {basket?.length}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );

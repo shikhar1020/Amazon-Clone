@@ -1,22 +1,25 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
-import Home from "./pages/Home/Home.js";
-import Checkout from "./pages/Checkout/Checkout.js";
-
+import Home from "./pages/Home/Home";
+import Checkout from "./pages/Checkout/Checkout";
+import NoRoute from "./pages/NoRoute/NoRoute";
 import "./App.scss";
+
+/* ---- Lazy load base app routes ---- */
+// const Home = lazy(() => import("./pages/Home/Home"));
+// const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
 
 function App() {
   return (
     <div className="App">
       <>
         <Header />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/checkout" component={Checkout} />
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/checkout" component={Checkout} />
+          <Route component={NoRoute} />
+        </Switch>
       </>
     </div>
   );
