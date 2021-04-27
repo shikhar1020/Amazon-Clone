@@ -4,10 +4,17 @@ import { MdShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useStateValue } from "../../context/StateProvider";
+import { auth } from "../../services/firebase";
 import "./style.scss";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
+
+  const handleAuthintication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
   return (
     <div className="header">
       <Link to="/">
@@ -24,10 +31,14 @@ function Header() {
         <MdSearch className="searhIcon" />
       </div>
       <div className="headerSide">
-        <Link to="/login">
-          <div className="hederSignIn">
-            <span className="headerSideLine1">Hello, Guest </span>
-            <span className="headerSideLine2">Sign In</span>
+        <Link to={!user && "/login"}>
+          <div onClick={handleAuthintication} className="hederSignIn">
+            <span className="headerSideLine1">
+              Hey, {user ? user?.email : `Guest`}
+            </span>
+            <span className="headerSideLine2">
+              {user ? `Sign Out` : `Sign In`}
+            </span>
           </div>
         </Link>
         <div className="headerOrders">

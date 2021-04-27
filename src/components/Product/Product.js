@@ -4,7 +4,7 @@ import "./style.scss";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
-  console.log("Currently the basket looks as : ", basket);
+  // console.log("Currently the basket looks as : ", basket);
   const addToBasket = () => {
     //add item to basket @ send data (i.e. recently added product detail) to the data layer or the context
     dispatch({
