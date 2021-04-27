@@ -10,14 +10,11 @@ function App() {
   return (
     <div className="App">
       <>
+        <Header />
         <Router>
           <Switch>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/checkout">
-              <Checkout />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/checkout" component={Checkout} />
           </Switch>
         </Router>
       </>
