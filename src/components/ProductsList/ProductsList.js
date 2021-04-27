@@ -17,7 +17,7 @@ function ProductsList() {
         <Product
           id="23543"
           title="OnePlus 9 Pro 5G (8GB RAM, 128GB Storage)"
-          price="150"
+          price="153"
           image="https://m.media-amazon.com/images/I/71rSu40EANL._AC_UY218_.jpg"
           rating={4}
         />
