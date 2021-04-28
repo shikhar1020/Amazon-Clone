@@ -1,17 +1,24 @@
 import { Suspense, lazy, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header.js";
-import Home from "./pages/Home/Home";
-import Checkout from "./pages/Checkout/Checkout";
-import NoRoute from "./pages/NoRoute/NoRoute";
-import Login from "./pages/Login/Login";
 import "./App.scss";
 import { auth } from "./services/firebase";
 import { useStateValue } from "./context/StateProvider";
 
-/* ---- Lazy load base app routes ---- */
-// const Home = lazy(() => import("./pages/Home/Home"));
-// const Checkout = lazy(() => import("./pages/Checkout/Checkout"));
+// Pages Componenents Import
+import Home from "./pages/Home/Home";
+import Checkout from "./pages/Checkout/Checkout";
+import NoRoute from "./pages/NoRoute/NoRoute";
+import Login from "./pages/Login/Login";
+import Payment from "./pages/Payment/Payment";
+
+//Stripe Payment Imports
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51IlBTzSJ4FpQdQxNaXgyDQQDYgMyCQEK83VitTPsETYrKE1tb5xiuljZ5qUcYnPOmXCssPnL2mcnqNhzBTYWElQ800X5r3TXqt"
+);
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -43,6 +50,11 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/login" component={Login} />
+          <Route path="/payment">
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
           <Route component={NoRoute} />
         </Switch>
       </>
