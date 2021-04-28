@@ -11,6 +11,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import NoRoute from "./pages/NoRoute/NoRoute";
 import Login from "./pages/Login/Login";
 import Payment from "./pages/Payment/Payment";
+import Orders from "./pages/Orders/Orders";
 
 //Stripe Payment Imports
 import { loadStripe } from "@stripe/stripe-js";
@@ -50,6 +51,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/login" component={Login} />
+          <Route path="/order" component={Orders} />
           <Route path="/payment">
             <Elements stripe={promise}>
               <Payment />

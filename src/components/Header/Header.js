@@ -41,7 +41,7 @@ function Header() {
             </span>
           </div>
         </Link>
-        <Link to="/payment">
+        <Link to="/order">
           <div className="headerOrders">
             <span className="headerSideLine1">Returns </span>
             <span>& Orders</span>
