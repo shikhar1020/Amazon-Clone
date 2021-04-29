@@ -39,13 +39,15 @@ function Payment() {
 
   console.log("THE SECRET IS >>>", clientSecret);
   console.log("👱", user);
+  console.log("Stripe Element is", stripe);
 
-  const handlePayment = async (event) => {
+  const handleSubmit = async (event) => {
     // do all the fancy stripe stuff...
     event.preventDefault();
     setProcessing(true);
     console.log("Payment Step 1");
 
+    console.log("Payment Method 1:", elements.getElement(CardElement));
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -54,16 +56,17 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation
-        console.log("Payment Step 2");
-        db.collection("users")
-          .doc(user?.uid)
-          .collection("orders")
-          .doc(paymentIntent.id)
-          .set({
-            basket: basket,
-            amount: paymentIntent.amount,
-            created: paymentIntent.created,
-          });
+        console.log("Payment Step 2", paymentIntent);
+
+        // db.collection("users")
+        //   .doc(user?.uid)
+        //   .collection("orders")
+        //   .doc(paymentIntent.id)
+        //   .set({
+        //     basket: basket,
+        //     amount: paymentIntent.amount,
+        //     created: paymentIntent.created,
+        //   });
 
         console.log("Payment Step 3");
         setSucceeded(true);
@@ -75,7 +78,7 @@ function Payment() {
         });
 
         console.log("Payment Step 4");
-        history.replace("/orders");
+        history.replace("/order");
       });
   };
 
@@ -101,7 +104,7 @@ function Payment() {
           <div className="payment__details">
             {/* Stripe magic will go */}
 
-            <form onSubmit={handlePayment}>
+            <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 
               <div className="payment__priceContainer">
