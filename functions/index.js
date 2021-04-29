@@ -16,7 +16,7 @@ app.use(cors({ origin: true })); //for security
 app.use(express.json()); //send and pass data in json format
 
 // - API routes
-app.get("/", (request, response) => response.status(200).send("This API is for Amazon Clone"));
+app.get("/", (request, response) => response.status(200).send("This is amazon clone"));
 
 app.get("/amazon", (request, response) => response.status(200).send("Wow! Loved this clone"));
 

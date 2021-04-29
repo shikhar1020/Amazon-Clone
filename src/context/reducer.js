@@ -23,13 +23,14 @@ function reducer(state, action) {
     case "REMOVE_FROM_BASKET":
       // Logic to remove items from basket
 
-      // we copy the basket here
-      let newBasket = [...state.basket];
-
       // find the index of the item in the cart array
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
       );
+
+      // we copy the basket here
+      let newBasket = [...state.basket];
+
       if (index >= 0) {
         // item exists in basket, remove it
         newBasket.splice(index, 1);

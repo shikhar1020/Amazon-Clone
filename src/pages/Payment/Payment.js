@@ -44,6 +44,7 @@ function Payment() {
     // do all the fancy stripe stuff...
     event.preventDefault();
     setProcessing(true);
+    console.log("Payment Step 1");
 
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
@@ -53,7 +54,7 @@ function Payment() {
       })
       .then(({ paymentIntent }) => {
         // paymentIntent = payment confirmation
-
+        console.log("Payment Step 2");
         db.collection("users")
           .doc(user?.uid)
           .collection("orders")
@@ -64,6 +65,7 @@ function Payment() {
             created: paymentIntent.created,
           });
 
+        console.log("Payment Step 3");
         setSucceeded(true);
         setError(null);
         setProcessing(false);
@@ -72,6 +74,7 @@ function Payment() {
           type: "EMPTY_BASKET",
         });
 
+        console.log("Payment Step 4");
         history.replace("/orders");
       });
   };
