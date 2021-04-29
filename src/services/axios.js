@@ -7,3 +7,16 @@ const instance = axios.create({
 });
 
 export default instance;
+
+/**
+
+ * -> get inside function folder
+cd functions
+
+ *-> to start backend sever:
+firebase emulators:start
+
+ *-> deploying backend
+firebase deploy --only functions
+
+ */

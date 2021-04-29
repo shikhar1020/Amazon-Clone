@@ -64,3 +64,17 @@ exports.api = functions.https.onRequest(app);
 
 // Example endpoint
 // http://localhost:5001/clone-4277b/us-central1/api
+
+
+/**
+
+ * -> get inside function folder
+cd functions
+
+ *-> to start backend sever:
+firebase emulators:start
+
+ *-> deploying backend
+firebase deploy --only functions
+
+ */
