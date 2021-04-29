@@ -16,7 +16,7 @@ function ProductsList() {
 
         <Product
           id="23543"
-          title="OnePlus 9 Pro 5G (8GB RAM, 128GB Storage)"
+          title="Boult Audio Bass Buds"
           price="153"
           image="https://m.media-amazon.com/images/I/71rSu40EANL._AC_UY218_.jpg"
           rating={4}
@@ -26,7 +26,7 @@ function ProductsList() {
       <div className="productRow">
         <Product
           id="23243"
-          title="Boult Audio Bass Buds"
+          title="OnePlus 9 Pro 5G (8GB RAM, 128GB Storage)"
           price="142"
           image="https://images-eu.ssl-images-amazon.com/images/I/41E5Bva7sOL._AC_SX184_.jpg"
           rating={2}
