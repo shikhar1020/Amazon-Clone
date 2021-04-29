@@ -28,11 +28,34 @@ app.post("/payments/create", async (request, response) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total, // subunits of the currency
     currency: "usd",
+    description: 'My Loved Product Order',
+    shipping: {
+        name: 'Shikhar Srivastava',
+        address: {
+          line1: 'Road to React',
+          postal_code: '98140',
+          city: 'Node Road',
+          state: 'Jharkhand',
+          country: 'US',
+        },
+      },
   });
+
+//   const customer = await stripe.customers.create({
+//     name: 'Shikhar Srivastava',
+//     address: {
+//       line1: 'Road to React',
+//       postal_code: '98140',
+//       city: 'Node Road',
+//       state: 'Javascript',
+//       country: 'India',
+//     }
+//   });
 
   // OK - Created
   response.status(201).send({
     clientSecret: paymentIntent.client_secret,
+    // customer,
   });
 });
 

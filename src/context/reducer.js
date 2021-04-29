@@ -5,6 +5,7 @@ export const initialState = {
 
 export const getBasketTotal = (basket) =>
   basket?.reduce((amount, item) => +amount + +item.price, 0);
+// https://stackoverflow.com/questions/23247859/better-way-to-sum-a-property-value-in-an-array
 // basket?.reduce((amount, item) => item.price + amount, 0);
 
 function reducer(state, action) {

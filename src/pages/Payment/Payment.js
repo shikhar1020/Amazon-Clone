@@ -41,6 +41,8 @@ function Payment() {
   console.log("👱", user);
   console.log("Stripe Element is", stripe);
 
+  const extraPaymentDetails = {};
+
   const handleSubmit = async (event) => {
     // do all the fancy stripe stuff...
     event.preventDefault();
