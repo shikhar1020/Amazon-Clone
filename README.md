@@ -8,6 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 /order \
 /payment 
 
+## Creds
+newmail@gmail.com | 123456
+
 ## Available Scripts
 
 In the project directory, you can run:
