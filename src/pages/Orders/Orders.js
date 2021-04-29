@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../services/firebase";
 import { useStateValue } from "../../context/StateProvider";
 import Order from "../../components/Order/Order";
+import Header from "../../components/Header/Header.js";
 import "./style.scss";
 
 function Orders() {
@@ -28,15 +29,17 @@ function Orders() {
   }, [user]);
 
   return (
-    <div className="orders">
-      <h1>Your Orders</h1>
-
-      <div className="orders__order">
-        {orders?.map((order) => (
-          <Order order={order} />
-        ))}
+    <>
+      <Header />
+      <div className="orders">
+        <h1>Your Orders</h1>
+        <div className="orders__order">
+          {orders?.map((order) => (
+            <Order order={order} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
