@@ -1,0 +1,18 @@
+FrontEnd Deployment:
+
+npm run build
+
+firebase deploy --only hosting
+
+
+-----------------------------------------
+Backend Deployment:
+
+ * -> get inside function folder
+cd functions
+
+ *-> to start backend sever:
+firebase emulators:start
+
+ *-> deploying backend
+firebase deploy --only functions
