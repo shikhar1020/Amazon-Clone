@@ -7,6 +7,9 @@ import { useStateValue } from "../../context/StateProvider";
 import { auth } from "../../services/firebase";
 import "./style.scss";
 
+// Remove Underline from Link
+// https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router
+
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
 
@@ -31,7 +34,7 @@ function Header() {
         <MdSearch className="searhIcon" />
       </div>
       <div className="headerSide">
-        <Link to={!user && "/login"}>
+        <Link to={!user && "/login"} style={{ textDecoration: "none" }}>
           <div onClick={handleAuthintication} className="hederSignIn">
             <span className="headerSideLine1">
               Hey, {user ? user?.email : `Guest`}
@@ -41,7 +44,7 @@ function Header() {
             </span>
           </div>
         </Link>
-        <Link to="/order">
+        <Link to="/order" style={{ textDecoration: "none" }}>
           <div className="headerOrders">
             <span className="headerSideLine1">Returns </span>
             <span>& Orders</span>
@@ -51,7 +54,7 @@ function Header() {
           <span className="headerSideLine1">Your </span>
           <span className="headerSideLine2">Prime</span>
         </div>
-        <Link to="/checkout">
+        <Link to="/checkout" style={{ textDecoration: "none" }}>
           <div className="headerCart">
             <MdShoppingCart />
             <span className="headerSideLine2 headerBasket">
