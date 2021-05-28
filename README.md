@@ -46,6 +46,10 @@ To visit the live site visit [Amazon Clone](https://clone-4277b.web.app/)🚀 bu
 
 ### `Sign Out`: Click on "Sign Out" Button to Log Out of the Account.
 
+### `Actual Payments`: Below is the screenshot of some of the sucessful payments that have been received to my Stripe Account while testing:)
+![image](https://user-images.githubusercontent.com/54438024/120046517-f4eb7680-c02f-11eb-9a80-4028754df2ae.png)
+
+
 
 ## Run on local PC 💻
 
